@@ -93,7 +93,7 @@ class TodoController extends Controller
           return back()->with(['errors'=>$validator->messages()]);
         }
         // dd($request->all());
-        Todo::findOrFail($todo)->first()->update($request->all());
+        $todo->update($request->all());
         return redirect()->action('TodoController@index')->with(['status' => 'Success', 'info' => 'Todo Update Success']);
     }
 
